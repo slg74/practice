@@ -24,14 +24,23 @@ print_linked_list(a)
 print('\n')
 
 
-#    None  ->  A  ->   B    ->   C  ->   D  ->  E   ->   None
+#    None  ->  A  ->   B   ->   C  ->   D  ->  E   ->   None
 #    prev     cur      next
 #
-#    None  ->  A  ->   B    ->   C  ->   D  ->  E   ->   None
-#             prev     cur       next
+#    None  <-  A  ->   B   ->   C  ->   D  ->  E   ->   None
+#             prev     cur      next
 #           
-#    None  ->  A  ->   B    ->  C  ->   D  ->  E   ->   None
-#                      prev     cur     next
+#    None  <-  A  <-   B   ->  C  ->   D  ->  E   ->   None
+#                      prev    cur     next
+#
+#    None  <-  A  <-   B   <-  C  ->   D  ->  E   ->   None
+#                              prev    cur    next
+#
+#    None  <-  A  <-   B   <-  C  <-   D  ->  E   ->   None
+#                                      prev   cur      next
+#
+#    None  <-  A  <-   B   <-  C  <-   D  <-  E   <-   None
+#                                             prev     cur    next... cur == None, return prev (E-D-C-B-A)
 #
 
 def reverse_linked_list(head):       
