@@ -16,7 +16,7 @@ class LinkedList:
         temp_node = self.head
         result = ''
         while temp_node is not None:
-            result += str(temp_node.value)
+            result += str(temp_node.val)
             if temp_node.next is not None:
                 result += ' -> '
             temp_node = temp_node.next
@@ -63,7 +63,9 @@ if __name__ == "__main__":
 
     print("Original list:")
     list.print()
+    print(list)
 
     print("Reversed list:")
     list.reverse()
     list.print()
+    print(list)
