@@ -43,6 +43,17 @@ print('\n')
 #                                             prev     cur    next... cur == None, return prev (E-D-C-B-A)
 #
 
+def rev(head):
+    cur = head
+    prev = None
+    while cur != None:
+        next = cur.next
+        cur.next = prev
+        prev = cur
+        cur = next
+    return prev
+
+
 def reverse_linked_list(head):       
     cur = head
     prev = None
