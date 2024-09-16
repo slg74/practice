@@ -3,7 +3,7 @@ class ListNode:
         self.val = val
         self.next = next
 
-def mergeTwoLists(l1: ListNode, l2: ListNode) -> ListNode:
+def merge_two_lists(l1: ListNode, l2: ListNode) -> ListNode:
     dummy = ListNode(0)
     current = dummy
     
@@ -24,7 +24,7 @@ def mergeTwoLists(l1: ListNode, l2: ListNode) -> ListNode:
     return dummy.next
 
 # Helper function to create a linked list from a list of values
-def createLinkedList(values):
+def create_linked_list(values):
     dummy = ListNode(0)
     current = dummy
     for val in values:
@@ -33,7 +33,7 @@ def createLinkedList(values):
     return dummy.next
 
 # Helper function to print a linked list
-def printLinkedList(head):
+def print_linked_list(head):
     current = head
     while current:
         print(current.val, end=" -> ")
@@ -41,14 +41,14 @@ def printLinkedList(head):
     print("None")
 
 # Test the merge function
-list1 = createLinkedList([1, 3, 5])
-list2 = createLinkedList([2, 4, 6])
+list1 = create_linked_list([1, 3, 5])
+list2 = create_linked_list([2, 4, 6])
 
 print("List 1:")
-printLinkedList(list1)
+print_linked_list(list1)
 print("List 2:")
-printLinkedList(list2)
+print_linked_list(list2)
 
-merged = mergeTwoLists(list1, list2)
+merged = merge_two_lists(list1, list2)
 print("Merged list:")
-printLinkedList(merged)
+print_linked_list(merged)
