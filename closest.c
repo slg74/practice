@@ -2,10 +2,6 @@
 #include <stdlib.h>
 #include <math.h>
 
-int max(int a, int b)
-{
-    return a > b ? a : b;
-}
 
 int findClosestNumber(int* nums, int numSize) {
     int closest = nums[0];
