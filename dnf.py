@@ -13,10 +13,8 @@ def sort_colors(nums):
 
     index = 0
     for color in range(3):
-        print(f"DEBUG color: {color}")
         for _ in range(colors[color]):
             nums[index] = color
-            print(f"DEBUG nums[index] {nums[index]} = color {color}")
             index += 1
 
     return nums

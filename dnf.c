@@ -1,10 +1,11 @@
 #include <stdio.h>
 
-void sortColors(int* nums, int numsSize) {
-    int count[3] = {0}; // hash map
 
-    for (int i = 0; i < numsSize; i++) {
-        count[nums[i]]++; 
+void sortColors(int* nums, int numSize) {
+    int count[3] = {0};
+
+    for (int i=0; i < numSize; i++) {
+        count[nums[i]]++;
     }
 
     int i = 0;
