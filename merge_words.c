@@ -4,67 +4,32 @@
 
 char* mergeAlternately(char* word1, char* word2) {
     int len1 = strlen(word1);
-    int len2 = strlen(word2);
-    int mergedLen = len1 + len2;
-    
-    char* merged = (char*)malloc((mergedLen + 1) * sizeof(char));
-    int i = 0, j = 0, k = 0;
-    
-    while (i < len1 && j < len2) {
-        merged[k++] = word1[i++];
-        merged[k++] = word2[j++];
-    }
-    
-    while (i < len1) {
-        merged[k++] = word1[i++];
-    }
-    
-    while (j < len2) {
-        merged[k++] = word2[j++];
-    }
-    
-    merged[k] = '\0';
-    return merged;
-}
-
-char *mergeAlphabetically(char* word1, char* word2) {
-    int len1 = strlen(word1); 
     int len2 = strlen(word2); 
-    int mergedLen = len1 + len2;
+    int merged_len = len1 + len2;
 
-    char* merged = (char *)malloc((mergedLen + 1) * sizeof(char)); 
+    char* merged = (char *)malloc((merged_len + 1) * sizeof(char));
 
     int i = 0;
     int j = 0; 
-    int k = 0; 
+    int k = 0;
 
-    while (i < len1 && j < len2) {
-        if (word1[i] <= word2[j]) {
+    while (i < len1 || j < len2) {
+        if (i < len1) {
             merged[k++] = word1[i++];
-        } else {
+        }
+        if (j < len2) {
             merged[k++] = word2[j++];
         }
     }
-
-    while (i < len1) merged[k++] = word1[i++];
-    while (j < len2) merged[k++] = word2[j++];
-
-    merged[k] = '\0';
+    merged[k] = '\0';  // end the merged string
     return merged;
 }
 
 int main() {
     char word1[] = "abc";
     char word2[] = "pqr";
-    
     char* result = mergeAlternately(word1, word2);
     printf("Merged string: %s\n", result);
-
-    char* alphabetic_result = mergeAlphabetically(word1, word2);
-    printf("Merged string: %s\n", alphabetic_result);
-    
     free(result);
-    free(alphabetic_result);
-    
     return 0;
 }
