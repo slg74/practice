@@ -28,17 +28,18 @@ fn merge_alternately(word1: &str, word2: &str) -> String {
 fn main() {
     let word1 = "abc";
     let word2 = "pqrs";
+    let num_iterations = 100000;
     
     let start = Instant::now();
     
-    for _ in 0..10000 {
+    for _ in 0..num_iterations {
         let _ = merge_alternately(word1, word2);
     }
     
     let duration = start.elapsed();
     let microseconds = duration.as_micros();
     
-    println!("Time taken to run merge_alternately 10000 times: {} microseconds", microseconds);
+    println!("Time taken to run merge_alternately {} times: {} microseconds", num_iterations, microseconds);
     
     // Print the result once for verification
     let result = merge_alternately(word1, word2);

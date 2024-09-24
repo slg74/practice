@@ -37,12 +37,13 @@ char *mergeAlternately(char* word1, char* word2) {
 }*/
 
 int main() {
+    int NUM_ITERATIONS = 100000;
     char word1[] = "abc";
     char word2[] = "pqrs";
     
     clock_t start = clock();
     
-    for (int i = 0; i < 10000; i++) {
+    for (int i = 0; i < NUM_ITERATIONS; i++) {
         char* result = mergeAlternately(word1, word2);
         free(result);  // Free the memory to avoid leaks
     }
@@ -50,7 +51,7 @@ int main() {
     clock_t end = clock();
     double cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC * 1000000;
     
-    printf("Time taken to run mergeAlternately 10000 times: %.2f microseconds\n", cpu_time_used);
+    printf("Time taken to run mergeAlternately %d times: %.2f microseconds\n", NUM_ITERATIONS, cpu_time_used);
     
     // Run once more for verification
     char* final_result = mergeAlternately(word1, word2);
