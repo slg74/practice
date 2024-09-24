@@ -1,3 +1,5 @@
+use std::time::Instant;
+
 fn merge_alternately(word1: &str, word2: &str) -> String {
     let mut result = String::with_capacity(word1.len() + word2.len());
     let mut chars1 = word1.chars();
@@ -24,8 +26,20 @@ fn merge_alternately(word1: &str, word2: &str) -> String {
 }
 
 fn main() {
-    let word1 = "abc";
-    let word2 = "pqrs";
+    let word1 = "abcdf";
+    let word2 = "pqrszx";
+
+    let start = Instant::now(); 
+
+    for _ in 0..1000 {
+        let _ = merge_alternately(word1, word2); 
+    }
+
+    let duration = start.elapsed();
+
+    println!("Time taken to run merge_alternately 1000 times: {:?}", duration);
+
+    // Print the result once for verification
     let result = merge_alternately(word1, word2);
     println!("Merged string: {}", result);
 }

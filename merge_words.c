@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 char *mergeAlternately(char* word1, char* word2) {
     int len1 = strlen(word1);
@@ -26,11 +27,35 @@ char *mergeAlternately(char* word1, char* word2) {
     return merged;
 }
 
-int main() {
+/*int main() {
     char word1[] = "abcdf";
     char word2[] = "pqrzx";
     char* result = mergeAlternately(word1, word2);
     printf("Merged string: %s\n", result);
     free(result);
+    return 0;
+}*/
+
+int main() {
+    char word1[] = "abc";
+    char word2[] = "pqr";
+    
+    clock_t start = clock();
+    
+    for (int i = 0; i < 1000; i++) {
+        char* result = mergeAlternately(word1, word2);
+        free(result);  // Free the memory to avoid leaks
+    }
+    
+    clock_t end = clock();
+    double cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC * 1000000;
+    
+    printf("Time taken to run mergeAlternately 1000 times: %.2f microseconds\n", cpu_time_used);
+    
+    // Run once more for verification
+    char* final_result = mergeAlternately(word1, word2);
+    printf("Merged string: %s\n", final_result);
+    free(final_result);
+    
     return 0;
 }
