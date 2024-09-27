@@ -23,7 +23,9 @@ int main() {
     printf("%d %d\n", i, j);
     printf("%d %d %p %p\n", i, j, &i, &j);
 
+    printf("Before swap: i = %d, j = %d\n", i, j);
     swap(&i, &j);
+    printf("After swap: i = %d, j = %d\n", i, j);
 
     printf("%d %d\n", i, j);
     printf("%d %d %p %p\n", i, j, &i, &j);
