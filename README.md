@@ -7,6 +7,6 @@ gdb ./pointers
 
 </pre>
 
-![pointers](pointers.png)  
+![pointers](pointers_new.png)  
 
 
