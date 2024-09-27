@@ -20,6 +20,7 @@ bool* kidsWithCandies(int* candies, int candiesSize, int extraCandies, int* retu
     return result;
 }
 
+
 int main() {
     int candies[] = {2, 3, 5, 1, 3};
     int candiesSize = sizeof(candies) / sizeof(candies[0]);

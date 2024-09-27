@@ -8,7 +8,12 @@ uint64_t PC = 0;              // Program counter
 
 typedef enum {
     ADD = 0x20,  // ADD instruction opcode
-    // ... (Other instruction opcodes)
+    SUB = 0x21,  // Subtract
+    MUL = 0x22,  // Multiply
+    DIV = 0x23,  // Divide
+    LDB = 0x80,  // Load byte
+    STB = 0x90,  // Store byte
+    JMP = 0xF0,  // Jump
 } Opcode;
 
 // Function to decode and execute a single instruction
@@ -22,7 +27,28 @@ void execute_instruction(uint32_t instruction) {
         case ADD:
             registers[ra] = registers[rb] + registers[rc];
             break;
-        // Add more cases for other instructions
+        case SUB:
+            registers[ra] = registers[rb] - registers[rc];
+            break;
+        case MUL:
+            registers[ra] = registers[rb] * registers[rc];
+            break;
+        case DIV:
+            if (registers[rc] != 0) {
+                registers[ra] = registers[rb] / registers[rc];
+            } else {
+                printf("Error: Division by zero\n");
+            }
+            break;
+        case LDB:
+            registers[ra] = memory[registers[rb] + registers[rc]];
+            break;
+        case STB:
+            memory[registers[rb] + registers[rc]] = registers[ra] & 0xFF;
+            break;
+        case JMP:
+            PC = registers[ra];
+            break;
         default:
             printf("Unknown opcode: 0x%02X\n", opcode);
             break;
@@ -59,6 +85,31 @@ int main(int argc, char *argv[]) {
     }
 
     load_program(argv[1]);
+
+    // Set up some initial values in registers
+    registers[1] = 10;
+    registers[2] = 5;
+
+    // Test ADD
+    uint32_t add_instruction = (ADD << 24) | (3 << 16) | (1 << 8) | 2;
+    execute_instruction(add_instruction);
+    printf("ADD result: %llu\n", registers[3]);
+
+    // Test SUB
+    uint32_t sub_instruction = (SUB << 24) | (4 << 16) | (1 << 8) | 2;
+    execute_instruction(sub_instruction);
+    printf("SUB result: %llu\n", registers[4]);
+
+    // Test MUL
+    uint32_t mul_instruction = (MUL << 24) | (5 << 16) | (1 << 8) | 2;
+    execute_instruction(mul_instruction);
+    printf("MUL result: %llu\n", registers[5]);
+
+    // Test DIV
+    uint32_t div_instruction = (DIV << 24) | (6 << 16) | (1 << 8) | 2;
+    execute_instruction(div_instruction);
+    printf("DIV result: %llu\n", registers[6]);
+
     run();  // Start the emulation
 
     return 0;
