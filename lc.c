@@ -2,23 +2,23 @@
 
 int main(int argc, char *argv[]) {
     if (argc != 2) {
-        printf("Usage: %s <file_path>\n", argv[0]);
+        printf("Usage: %s <filename>\n", argv[0]);
         return 1;
     }
 
-    FILE *file = fopen(argv[1], "r"); 
+    FILE *file = fopen(argv[1], "r");
     if (!file) {
         perror("Cannot open file.");
         return 1;
     }
 
-    int total = 0;
+    int total_lines = 0;
     char ch;
     while ((ch = fgetc(file)) != EOF) {
         if (ch == '\n') {
-            total++;
+            total_lines++;
         }
     }
-    printf("File %s has %d lines.\n", argv[1], total);
+    printf("Total line count: %d\n", total_lines);
     return 0;
 }
