@@ -9,9 +9,9 @@ int removeDuplicates(int* nums, int numsSize) {
     int unique_count = 0;
 
     for (int i = 0; i < numsSize; i++) {
-        if (!seen[nums[i]]) {
-            seen[nums[i]] = true;
-            nums[unique_count++] = nums[i];
+        if (!seen[nums[i]]) {              
+            seen[nums[i]] = true;           
+            nums[unique_count++] = nums[i];  
         }
     }
     return unique_count;
