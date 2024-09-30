@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
     }
 
     int total = 0;
-    char ch;
+    int ch;
     while ((ch = fgetc(file)) != EOF) {
         if (ch == '\n') {
             total++;
