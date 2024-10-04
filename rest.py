@@ -10,6 +10,7 @@ item_id_counter = 1
 def get_items():
     return jsonify(list(items.values()))
 
+// Create
 @app.route('/items', methods=['POST'])
 def create_item():
     global item_id_counter
@@ -23,6 +24,7 @@ def create_item():
     item_id_counter += 1
     return jsonify(new_item), 201
 
+// Read
 @app.route('/items/<int:item_id>', methods=['GET'])
 def get_item(item_id):
     item = items.get(item_id)
@@ -30,6 +32,7 @@ def get_item(item_id):
         return jsonify(item)
     return jsonify({'error': 'Item not found'}), 404
 
+// Update
 @app.route('/items/<int:item_id>', methods=['PUT'])
 def update_item(item_id):
     item = items.get(item_id)
@@ -40,6 +43,7 @@ def update_item(item_id):
         return jsonify(item)
     return jsonify({'error': 'Item not found'}), 404
 
+// Delete
 @app.route('/items/<int:item_id>', methods=['DELETE'])
 def delete_item(item_id):
     if item_id in items:
