@@ -21,6 +21,15 @@ int main() {
     (*ptr)++;
     printf("4 | %c, %c, %llu, %p\n", b, *ptr, (uint64_t)ptr, ptr);
 
+    unsigned x = 'A';
+    ptr = (char *)&x; 
+    printf("4 | %u, %c, %llu, %p\n", x, *ptr, (uint64_t)&x, ptr);
+
+    unsigned y = 'B';
+    ptr = (char *)&y;
+    printf("4 | %u, %c, %llu, %p\n", y, *ptr, (uint64_t)&y, ptr);
+    
+
 
     printf("\n=== pointers ===\n");
 
