@@ -19,15 +19,15 @@ int main() {
     printf("3 | %c, %c, %llu, %p\n", b, *ptr, (uint64_t)ptr, ptr);
 
     (*ptr)++;
-    printf("4 | %c, %c, %llu, %p\n", b, *ptr, (uint64_t)ptr, ptr);
+    printf("5 | %c, %c, %llu, %p\n", b, *ptr, (uint64_t)ptr, ptr);
 
     unsigned x = 'A';
     ptr = (char *)&x; 
-    printf("4 | %u, %c, %llu, %p\n", x, *ptr, (uint64_t)&x, ptr);
+    printf("6 | %u, %c, %llu, %p\n", x, *ptr, (uint64_t)&x, ptr);
 
     unsigned y = 'B';
     ptr = (char *)&y;
-    printf("4 | %u, %c, %llu, %p\n", y, *ptr, (uint64_t)&y, ptr);
+    printf("7 | %u, %c, %llu, %p\n", y, *ptr, (uint64_t)&y, ptr);
     
 
 
