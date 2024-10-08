@@ -28,6 +28,10 @@ int main() {
     unsigned y = 'B';
     ptr = (char *)&y;
     printf("7 | %u, %c, %llu, %p\n", y, *ptr, (uint64_t)&y, ptr);
+
+    *ptr = 'C';
+
+
     
 
 
