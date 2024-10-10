@@ -9,6 +9,7 @@ int strStr(const char* haystack, const char* needle) {
     int needle_len = strlen(needle);
 
     for (int i = 0; i <= haystack_len - needle_len; i++) {
+        printf("haystack + i: %s\tneedle: %s\tneedle_len: %d\n", haystack + i, needle, needle_len);
         if (strncmp(haystack + i, needle, needle_len) == 0) {
             return i;
         }
@@ -18,13 +19,13 @@ int strStr(const char* haystack, const char* needle) {
 }
 
 int main() {
-    const char* haystack = "sadbutsad";
-    const char* needle = "sad";
+    const char* haystack = "codeleetcodeleet";
+    const char* needle = "del";
 
     int result = strStr(haystack, needle);
     printf("First occurrence at index: %d\n", result);
 
-
+/*
     const char* first = "Hello this is a test";
     const char* second = "Hello from outer space";
 
@@ -41,6 +42,6 @@ int main() {
     } else {
         printf("First 10 chars of first and second are not equal\n"); 
     }
-
-    return 0;
+*/
+    return EXIT_SUCCESS;
 }
