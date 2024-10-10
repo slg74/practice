@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// basic code from sedgewick, "algorithms in C", 1990. 
 
 struct Node {
     int key;
