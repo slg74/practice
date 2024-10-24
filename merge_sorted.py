@@ -4,7 +4,7 @@ def merge_lists(list1, list2):
     j = 0
 
     while i < len(list1) and j < len(list2):
-        if list1[i] <= list1[j]:
+        if list1[i] <= list2[j]:
             merged.append(list1[i])
             i += 1
         else:
