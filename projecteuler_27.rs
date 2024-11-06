@@ -23,22 +23,22 @@ fn count_consecutive_primes(a: i32, b: i32) -> i32 {
 }
 
 fn main() {
-    let mut max_primes = 0;
-    let mut best_a = 0;
-    let mut best_b = 0;
+    let mut max_primes = 0i32;
+    let mut best_a = 0i32;
+    let mut best_b = 0i32;
     
     // Create vector for prime b values
-    let mut b_primes = Vec::new();
+    let mut b_primes: Vec<i32> = Vec::new();
     
     // Find prime b values
-    for b in -1000..=1000 {
+    for b in -1000i32..=1000i32 {
         if is_prime(b.abs()) {
             b_primes.push(b);
         }
     }
     
     // Main calculation loop
-    for a in -999..1000 {
+    for a in -999i32..1000i32 {
         for &b in b_primes.iter() {
             // Check if second number is prime (when n=1)
             if !is_prime(1 + a + b) {
